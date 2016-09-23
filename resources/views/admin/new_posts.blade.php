@@ -13,7 +13,7 @@
 	</div>
 	<div class="field">
 		<label>標題</label>
-		@if($post)
+		@if(isset($post))
 			<input type="text" name="title" placeholder="標題" value="{{ $post->title }}">
 		@else
 			<input type="text" name="title" placeholder="標題">
@@ -21,7 +21,7 @@
 	</div>
 	<div class="field">
 		<label>內容</label>
-		@if($post)
+		@if(isset($post))
 			<textarea rows="20" name="content" id="content">
 				{{ $post->content }}
 			</textarea>
@@ -47,7 +47,7 @@
 		$('#post').submit(function() {
 			if ($("#post").form('is valid')) {
 				$(".dimmer").addClass('active');
-				@if($post)
+				@if(isset($post))
 					var url = '/admin/posts/edit/{{ $post->id }}';
 				@else
 					var url = '/admin/posts/new';

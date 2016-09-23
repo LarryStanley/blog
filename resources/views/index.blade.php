@@ -55,29 +55,22 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">產品簡介 <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">交通管理路側設備</a></li>
-                            <li><a href="#">交通資訊應用系統</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">服務提供 <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">交通系統維護管理</a></li>
-                            <li><a href="#">交通設施維護管理</a></li>
-                            <li><a href="#">各項交通維持計畫評估</a></li>
-                            <li><a href="#">易肇事路段/口的解決方案</a></li>
-                            <li><a href="#">瓶頸路段/口的解決方案</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="page-scroll">成就案例</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll">Q&A</a>
-                    </li>
+                    @foreach($navigation as $nav)
+                        @if ($nav->sub_nav)
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ $nav->title }} <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    @foreach($nav->sub_navigation as $sub_nav)
+                                        <li><a href="{{ $sub_nav->url }}">{{ $sub_nav->title }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @else
+                            <li>
+                                <a class="page-scroll" href="{{ $nav->url }}">{{ $nav->title }}</a>
+                            </li>
+                        @endif
+                    @endforeach
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

@@ -19,9 +19,9 @@
 					<i class="delete icon" v-on:click="deleteSubNav(sub_nav.id, sub_nav.parent_id, index, key)"></i>
 				</a>
 				<div class="actions" style="margin-top: 5px;">
-					<button class="ui mini button primary">新增子選單</button>
+
+					<button class="ui mini button primary" v-on:click='showAppendSubNavModal(nav.id, nav.title, $index)'>新增子選單</button>
 					<button class="ui mini button red" v-on:click='deleteNav(nav.id)' >刪除選單</button>
-					
 				</div>
 			</div>
 		</div>
@@ -85,6 +85,34 @@
 			<div class="ui button primary" v-on:click="saveNav">新增</div>
 		</div>
 	</div>
+	<div class="ui modal" id="newSubNavModal">
+		<div class="ui inverted dimmer">
+			<div class="ui text loader">新增中...</div>
+		</div>
+		<div class="header">新增「@{{ new_sub_nav.parent_title }}」的子選單</div>
+		<div class="content">
+			<form action="" class="ui form" id="appendSubNavForm">
+				<div class="two fields" style="margin-top: 5px;">
+					<div class="field">
+						<div class="ui selection dropdown">
+							<input type="hidden" name="title">
+							<i class="dropdown icon"></i>
+							<div class="default text">標題</div>
+							<div class="menu">
+								<div class="item" v-for="post in posts" data-value="@{{ post.id }}">
+									@{{ post.title }}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="actions">
+			<div class="ui button cancel">取消</div>
+			<div class="ui button primary" v-on:click="appendSubNav">新增</div>
+		</div>
+	</div>
 </div>
 @endsection
 
@@ -96,7 +124,7 @@
 			$("#newNavigationModal").modal("show");
 		});
 
-		$("#newNavForm").submit(function() {
+		$(".form").submit(function() {
 			return false;
 		});
 
@@ -105,7 +133,14 @@
 			data: {
 				posts: [],
 				sub_navs: [],
-				navs: []
+				navs: [],
+				new_sub_nav: {
+					parent_title: '',
+					parent_id: '',
+					id: '',
+					title: '',
+					parent_index: ''
+				}
 			},
 			methods: {
 				init: function() {
@@ -168,6 +203,33 @@
 						success: function(data) {
 							self.navs[index].sub_navigation.splice(key, 1);
 							$("#navigations .dimmer").removeClass("active");
+						}
+					});
+				},
+				showAppendSubNavModal: function(id, title, index) {
+					$('#newSubNavModal').modal('show');
+					this.new_sub_nav.parent_id = id;
+					this.new_sub_nav.parent_title = title;
+					this.new_sub_nav.parent_index = index;
+				},
+				appendSubNav: function() {
+					var self = this;
+					$("#newSubNavModal .dimmer").addClass("active");
+					$.ajax({
+						url: '/admin/navigation/sub_navigation/' + self.new_sub_nav.parent_id,
+						method: "POST",
+						dataType: 'json',
+						data: {
+							"_token": $('input[name=_token]').val(),
+							"posts": [{
+								"title": $('#appendSubNavForm .text').text(),
+								"id": $("#appendSubNavForm input[name=title]").val()
+							}]
+						},success: function(response) {
+							self.navs[self.new_sub_nav.parent_index].sub_navigation.push(response.navigation.sub_navigation[response.navigation.sub_navigation.length-1]);
+							$('.ui.accordion').accordion('refresh');
+							$("#newSubNavModal .dimmer").removeClass("active");
+							$('#newSubNavModal').modal('hide');
 						}
 					});
 				},

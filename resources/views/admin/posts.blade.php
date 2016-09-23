@@ -10,15 +10,13 @@
 		<thead>
 			<tr>
 				<th>標題</th>
-				<th>內容</th>
 				<th>最後編輯</th>
 				<th>設定</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr v-for="post in posts">
-				<td>@{{ post.title }}</td>
-				<td>@{{{ post.content }}}</td>
+				<td><a href="/posts/@{{post.id}}" target="_blank">@{{ post.title }}</a></td>
 				<td>@{{ post.updated_at }}</td>
 				<td>
 					<div class="ui simple dropdown">

@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'HomeController@index');
+Route::get('/posts/{id}', 'HomeController@posts');
 
 Auth::routes();
 
@@ -38,5 +37,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
             Route::post('/{parent_id}', 'Api\NavigationController@newSubNav');
             Route::delete('/{id}', 'Api\NavigationController@deleteSubNav');
         });
+    });
+
+    Route::group(['prefix' => 'files'], function() {
+        Route::get('/new', 'Admin\FileController@new');
+        Route::post('/new', 'Api\FileController@new');
     });
 });
