@@ -10,12 +10,19 @@ use App\File;
 class FileController extends Controller
 {
     public function index() {
-        return "123";
+    	$files = File::all();
+        return $files;
     }
 
     public function getFile($file_name) {
     	$file = File::where('file_name', $file_name)->firstOrFail();
     	return response()->download("/var/www/blog/public/documents/".$file->name, $file->file_name, []);
+    }
+
+    public function getFileInfo($file_name) {
+      $file = File::where('file_name', $file_name)->firstOrFail();
+
+      return $file;
     }
 
     public function new(Request $request) {
@@ -36,5 +43,17 @@ class FileController extends Controller
 				 			"type" => $type ]
 			]);
     	}
+    }
+
+    public function delete($id) {
+      	$file = File::find($id);
+      	$file->delete();
+
+      	$files = File::all();
+
+      	return response()->json([
+      			"status" => "success",
+      			"files" => $files
+      		]);
     }
 }

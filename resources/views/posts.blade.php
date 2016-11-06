@@ -83,7 +83,7 @@
             </div>
         </div>
     </header>
-    <div class="container" style="min-height: 650px;">
+    <div class="container" style="min-height: 650px; font-size: 24px">
          <h1>{{ $post->title }}</h1>
         {!! $post->content !!}
     </div>

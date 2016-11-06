@@ -28,6 +28,7 @@ Route::group(['prefix' => 'posts'], function() {
 Route::group(['prefix' => 'files'], function() {
 	Route::get('/', 'Api\FileController@index');
 	Route::get('/{file_name}', 'Api\FileController@getFile');
+	Route::get('/info/{file_name}', 'Api\FileController@getFileInfo');
 	Route::post('/', 'Api\FileController@new')->middleware('auth:api');;
 	Route::delete('/{id}', 'Api\FileController@delete')->middleware('auth:api');;
 });

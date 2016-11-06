@@ -123,11 +123,12 @@
     </section>
 
     <!-- Portfolio Grid Section -->
-    <section id="portfolio" class="bg-light-gray">
+    <section id="portfolio" class="bg-light-gray" style="background: url(img/image9.jpg) no-repeat center center fixed; background-size: cover;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">經營理念</h2>
+                    <marquee direction="right" height="30" scrollamount="5" behavior="alternate">好安全 好品質 好高效 好舒適</marquee>
                 </div>
             </div>
             <div class="row">
@@ -141,7 +142,6 @@
                         <img src="img/image6.jpg" class="img-responsive img-circle" alt="">
                     </a>
                     <div class="portfolio-caption">
-                        <h4>好安全</h4>
                         <p class="text-muted">提供"好安全"的交通號誌控制設備。</p>
                     </div>
                 </div>
@@ -155,7 +155,6 @@
                         <img src="img/image7.jpg" class="img-responsive img-circle" alt="">
                     </a>
                     <div class="portfolio-caption">
-                        <h4>好品質</h4>
                         <p class="text-muted">提供"好品質"的交通號誌控制系統。</p>
                     </div>
                 </div>
@@ -169,7 +168,6 @@
                         <img src="img/image9.jpg" class="img-responsive img-circle" alt="">
                     </a>
                     <div class="portfolio-caption">
-                        <h4>好高效</h4>
                         <p class="text-muted">提供"好高效"的交通號誌維運管理機制。</p>
                     </div>
                 </div>
@@ -183,7 +181,6 @@
                         <img src="img/image1.jpg" class="img-responsive img-circle" alt="">
                     </a>
                     <div class="portfolio-caption">
-                        <h4>好舒適</h4>
                         <p class="text-muted">共同打造"好舒適"的智慧綠色城市。</p>
                     </div>
                 </div>

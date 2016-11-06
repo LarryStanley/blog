@@ -26,6 +26,7 @@
 		
 	</tbody>
 </table>
+<a href="/admin/files" class="ui button primary right floated" style="margin-top: 10px">檔案總覽</a>
 @endsection
 
 @section('javascript')

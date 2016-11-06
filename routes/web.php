@@ -40,7 +40,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     });
 
     Route::group(['prefix' => 'files'], function() {
+        Route::get('/', 'Admin\FileController@index');
         Route::get('/new', 'Admin\FileController@new');
         Route::post('/new', 'Api\FileController@new');
+        Route::delete("/{id}", 'Api\FileController@delete');
     });
 });
