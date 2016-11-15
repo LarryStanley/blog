@@ -46,19 +46,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">建程科技</a>
+                <a class="navbar-brand page-scroll" href="#page-top" style="font-weight: bold; font-size: 72px;">建程科技</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right" style="font-size: 24px;">
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
                     @foreach($navigation as $nav)
                         @if ($nav->sub_nav)
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ $nav->title }} <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: #fec503;">{{ $nav->title }} <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     @foreach($nav->sub_navigation as $sub_nav)
                                         <li><a href="{{ $sub_nav->url }}">{{ $sub_nav->title }}</a></li>
@@ -82,18 +82,29 @@
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-heading">提供交通管理的最佳解決方案</div>
-                <a href="#services" class="page-scroll btn btn-xl">瞭解更多</a>
+                <div class="intro-heading">提供交通管理的解決方案</div>
+                <a href="#portfolio" class="page-scroll btn btn-xl" style="color:black; font-size: 24px;">瞭解更多</a>
             </div>
         </div>
     </header>
+    
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio" class="bg-light-gray" style="background: url(img/image9.jpg) no-repeat center center fixed; background-size: cover;" style="height:100px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1 class="section-heading" style="font-size: 72px;">經營理念</h1>
+                    <marquee style="font-size: 36px;" direction="right" height="50" scrollamount="5" behavior="alternate">打造好安全 好品質 好高效的交通環境</marquee>
+                </div>
+            </div>
+    </section>
 
     <!-- Services Section -->
     <section id="services">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">產品與服務特色</h2>
+                    <h2 class="section-heading" style="font-size: 72px;">產品與服務特色</h2>
                 </div>
             </div>
             <div class="row">
@@ -103,159 +114,25 @@
             </div>
             <div class="row text-center">
                 <div class="col-md-6">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-map-marker fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">客製化提供交通產品 與服務。</h4>
+                    <img src="img/image6.jpg" alt="" class="img-circle img-responsive">
+                    <h4 class="service-heading" style="font-size: 36px;">客製化提供交通產品 與服務。</h4>
                     <p class="text-muted"></p>
                 </div>
                 <div class="col-md-6">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">活化與優化交通資訊</h4>
+                    <img src="img/image7.jpg" alt="" class="img-circle img-responsive">
+                    <h4 class="service-heading" style="font-size: 36px;">活化與優化交通資訊</h4>
                     <p class="text-muted"></p>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Portfolio Grid Section -->
-    <section id="portfolio" class="bg-light-gray" style="background: url(img/image9.jpg) no-repeat center center fixed; background-size: cover;">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">經營理念</h2>
-                    <marquee direction="right" height="30" scrollamount="5" behavior="alternate">好安全 好品質 好高效 好舒適</marquee>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/image6.jpg" class="img-responsive img-circle" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <p class="text-muted">提供"好安全"的交通號誌控制設備。</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/image7.jpg" class="img-responsive img-circle" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <p class="text-muted">提供"好品質"的交通號誌控制系統。</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/image9.jpg" class="img-responsive img-circle" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <p class="text-muted">提供"好高效"的交通號誌維運管理機制。</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/image1.jpg" class="img-responsive img-circle" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <p class="text-muted">共同打造"好舒適"的智慧綠色城市。</p>
-                    </div>
-                </div>
-        </div>
-    </section>
-        <section id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">具有專利</h2>
-                    <h3 class="section-subheading text-muted"></h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="timeline">
-                        <li>
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/1.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h3 class="subheading">交通流量監控系統及方法</h3>
-                                </div>
-                               
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h3>射頻遮斷式交通監控裝置及其方法</h3>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted"></p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/3.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h3 class="subheading">交通號誌控制方法與交通號誌時相規劃方法</h3>
-                                </div>
-                                <div class="timeline-body">
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/4.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h3 class="subheading">車流量預測方法</h3>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
-    <section id="contact">
+    <section style="background-color: rgb(252,220,159);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">聯絡我們</h2>
-                    <h3 class="section-subheading text-muted">電話：03 555-0105</h3>
+                    <h2 class="section-heading" style="font-size: 72px;">聯絡我們</h2>
+                    <h3 class="section-subheading text-muted" style="font-size: 36px;">電話：03 555-0105</h3>
                 </div>
             </div>
             <div class="row">
